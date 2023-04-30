@@ -1,0 +1,535 @@
+<script setup lang="ts">
+/* import { ref } from 'vue';
+
+const activePanelIndex = ref(-1);
+
+const handleAccordionClick = (event: MouseEvent) => {
+  const target = event.target as HTMLElement;
+  if (!target) return;
+
+  const activePanel = target.closest('.accordion-panel');
+
+  if (!activePanel) return;
+
+  const index = Array.from(activePanel.parentElement.children).indexOf(activePanel);
+  if (activePanelIndex.value === index) {
+    activePanelIndex.value = -1;
+  } else {
+    activePanelIndex.value = index;
+  }
+};
+
+const isPanelActive = (index: number) => {
+  return activePanelIndex.value === index;
+}; */
+/* const accordion = document.querySelector(".accordion");
+
+accordion.addEventListener('click', (e) => {
+  const activePanel = e.target.closest('.accordion-panel');
+  if (!activePanel) return;
+});
+
+function toggleAccordion(panelToActivate) {
+  const buttons = panelToActivate.parentElement.querySelectorAll('accordion-trigger');
+  const contents = panelToActivate.parentElement.querySelectorAll('accordion-content');
+
+  buttons.forEach((button) => {
+    button.setAttribute('aria-expanded', 'false');
+  });
+
+  contents.forEach((content) => {
+    content.setAttribute('aria-hidden', 'true');
+  });
+
+  panelToActivate.querySelector('accordion-trigger').setAttribute('aria-expanded', 'true');
+  panelToActivate.querySelector('accordion-content').setAttribute('aria-hidden', 'false');
+} */
+</script>
+
+<template>
+  <!-- <div class="wrapper">
+    <div class="accordion">
+      <div class="accordion-panel" @click="handleAccordionClick(0)">
+        <h2 id="panel1-heading">
+          <button class="accordion-trigger" aria-controls="panel1-content" :aria-expanded="isPanelActive(0)">
+            <span class="accordion-title" id="panel1-title">
+              Canada
+            </span>
+            <svg aria-hidden="true" class="accordion-icon">
+              <use xlink:href="#canada-flag"></use>
+            </svg>
+          </button>
+        </h2>
+        <div class="accordion-content" id="panel1-content" aria-labelledby="panel1-heading"
+          :aria-hidden="!isPanelActive(0)" role="region">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, et similique consequuntur voluptatibus eligendi
+            ad deserunt sequi quibusdam cumque fugit quasi? Similique et perferendis odit sed sunt. Ea, nam voluptates!
+          </p>
+          <img class="accordion-image" src="/src/assets/images/stores/korie-cull-IzIME1jwjCY-unsplash.jpg"
+            alt="The Scarlatta Fortuna Canadian Store">
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-panel" @click="handleAccordionClick(1)">
+        <h2 id="panel2-heading">
+          <button class="accordion-trigger" aria-controls="panel2-content" :aria-expanded="isPanelActive(1)">
+            <span class="accordion-title" id="panel2-title">
+              United States
+            </span>
+            <svg aria-hidden="true" class="accordion-icon">
+              <use xlink:href="#united-states-flag"></use>
+            </svg>
+          </button>
+        </h2>
+        <div class="accordion-content" id="panel2-content" aria-labelledby="panel2-heading"
+          :aria-hidden="!isPanelActive(1)" role="region">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, et similique consequuntur voluptatibus eligendi
+            ad deserunt sequi quibusdam cumque fugit quasi? Similique et perferendis odit sed sunt. Ea, nam voluptates!
+          </p>
+          <img class="accordion-image" src="/src/assets/images/stores/qin-fan-KfqgYzoH3Vk-unsplash.jpg"
+            alt="The Scarlatta Fortuna American Store">
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-panel" @click="handleAccordionClick(2)">
+        <h2 id="panel3-heading">
+          <button class="accordion-trigger" aria-controls="panel3-content" :aria-expanded="isPanelActive(2)">
+            <span class="accordion-title" id="panel3-title">
+              Italy
+            </span>
+            <svg aria-hidden="true" class="accordion-icon">
+              <use xlink:href="#italy-flag"></use>
+            </svg>
+          </button>
+        </h2>
+        <div class="accordion-content" id="panel3-content" aria-labelledby="panel3-heading"
+          :aria-hidden="!isPanelActive(2)" role="region">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, et similique consequuntur voluptatibus eligendi
+            ad deserunt sequi quibusdam cumque fugit quasi? Similique et perferendis odit sed sunt. Ea, nam voluptates!
+          </p>
+          <img class="accordion-image" src="/src/assets/images/stores/christian-wiediger-I8-T4lMCA6k-unsplash.jpg"
+            alt="The Scarlatta Fortuna Italian Store">
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-panel" @click="handleAccordionClick(3)">
+        <h2 id="panel4-heading">
+          <button class="accordion-trigger" aria-controls="panel4-content" :aria-expanded="isPanelActive(3)">
+            <span class="accordion-title" id="panel4-title">
+              England
+            </span>
+            <svg aria-hidden="true" class="accordion-icon">
+              <use xlink:href="#united-kingdom-flag"></use>
+            </svg>
+          </button>
+        </h2>
+        <div class="accordion-content" id="panel4-content" aria-labelledby="panel4-heading"
+          :aria-hidden="!isPanelActive(3)" role="region">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, et similique consequuntur voluptatibus eligendi
+            ad deserunt sequi quibusdam cumque fugit quasi? Similique et perferendis odit sed sunt. Ea, nam voluptates!
+          </p>
+          <img class="accordion-image" src="/src/assets/images/stores/clark-street-mercantile-P3pI6xzovu0-unsplash.jpg"
+            alt="The Scarlatta Fortuna British Store">
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-panel" @click="handleAccordionClick(4)">
+        <h2 id="panel5-heading">
+          <button class="accordion-trigger" aria-controls="panel5-content" :aria-expanded="isPanelActive(4)">
+            <span class="accordion-title" id="panel5-title">
+              England
+            </span>
+            <svg aria-hidden="true" class="accordion-icon">
+              <use xlink:href="#south-korea-flag"></use>
+            </svg>
+          </button>
+        </h2>
+        <div class="accordion-content" id="panel5-content" aria-labelledby="panel5-heading"
+          :aria-hidden="!isPanelActive(4)" role="region">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, et similique consequuntur voluptatibus eligendi
+            ad deserunt sequi quibusdam cumque fugit quasi? Similique et perferendis odit sed sunt. Ea, nam voluptates!
+          </p>
+          <img class="accordion-image" src="/src/assets/images/stores/gaku-iqfXIeRbR90-unsplash.jpg"
+            alt="The Scarlatta Fortuna British Store">
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <svg width="0" height="0" class="hidden">
+    <symbol version="1.1" id="canada-flag" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      xml:space="preserve" viewBox="0 0 473.681 473.681">
+      <circle cx="236.85" cy="236.85" r="236.83"></circle>
+      <path d="M0.002,236.842c0,89.021,49.142,166.531,121.749,206.989V29.842
+                      	C49.144,70.304,0.002,147.81,0.002,236.842z"></path>
+      <path d="M236.837,473.677c-2.726,0-5.348-0.093-8.021-0.138C231.473,473.628,234.146,473.677,236.837,473.677
+                      	z"></path>
+      <path
+        d="M236.837,0c-0.075,0-0.138,0.004-0.213,0.004C236.697,0.004,236.764,0,236.837,0
+                      	c130.807,0,130.807,473.681,0,473.681c41.704,0,80.861-10.819,114.898-29.741V29.737C317.697,10.815,278.54,0,236.837,0z">
+      </path>
+      <path d="M351.734,29.737v414.199c72.716-40.429,121.944-117.999,121.944-207.094
+                      	C473.678,147.736,424.451,70.166,351.734,29.737z"></path>
+      <path
+        d="M236.837,0c-0.075,0-0.138,0-0.213,0c-41.696,0.037-80.853,10.89-114.876,29.842v413.986
+                      	c31.887,17.767,68.292,28.417,107.068,29.707c2.674,0.045,5.295,0.138,8.021,0.138C367.643,473.677,367.643,0,236.837,0z">
+      </path>
+      <path
+        d="M328.747,232.56c-3.257-3.111-9.94-2.767-11.133-7.939c-1.578-12.703,4.267-20.1,7.954-28.589
+                      	c-18.66,4.364-33.372,11.548-33.357-9.528c-10.714,13.1-22.232,26.199-26.989,23.821c-6.757-3.971,6.484-37.687,7.932-55.578
+                      	c-6.537,2.984-19.057,9.528-19.057,9.528s-11.38-22.258-17.404-33.237v-0.12c-0.022,0.022-0.022,0.041-0.03,0.06
+                      	c-0.015-0.015-0.015-0.037-0.03-0.06v0.12c-6.032,10.979-17.404,33.237-17.404,33.237s-12.528-6.544-19.057-9.528
+                      	c1.44,17.894,14.682,51.61,7.924,55.578c-4.76,2.382-16.275-10.721-26.981-23.821c0,21.076-14.704,13.893-33.357,9.528
+                      	c3.68,8.485,9.525,15.882,7.932,28.589c-1.174,5.172-7.861,4.828-11.118,7.939c21.648,21.641,59.168,37.714,41.296,55.581
+                      	l48.184-4.495c1.578,16.282-3.519,36.263,0.905,47.38c1.036,0,0.696,0,1.672,0c0.015,0,0.037,0,0.06,0c0.972,0,0.613,0,1.642,0
+                      	c4.514-11.518-0.643-31.095,0.935-47.38l48.177,4.495C269.588,270.274,307.107,254.201,328.747,232.56z">
+      </path>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+      preserveAspectRatio="xMidYMid meet" viewBox="0 0 64 64" id="italy-flag">
+      <path d="M1.7 32c0 13.1 8.4 24.2 20 28.3V3.7C10.1 7.8 1.7 18.9 1.7 32z" fill="#75a843"></path>
+      <path d="M61.7 32c0-13.1-8.4-24.2-20-28.3v56.6c11.7-4.1 20-15.2 20-28.3" fill="#ed4c5c"></path>
+      <path d="M21.7 60.3c3.1 1.1 6.5 1.7 10 1.7s6.9-.6 10-1.7V3.7C38.6 2.6 35.2 2 31.7 2s-6.9.6-10 1.7v56.6"
+        fill="#ffffff"></path>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+      preserveAspectRatio="xMidYMid meet" viewBox="0 0 64 64" id="south-korea-flag">
+      <circle cx="32" cy="32" r="30" fill="#f5f5f5"></circle>
+      <path
+        d="M23.4 33.7c2.8 1.9 6.7 1.1 8.6-1.7c1.9-2.8 5.7-3.6 8.6-1.7c2.7 1.8 3.5 5.3 2 8c3.3-5.6 1.8-12.9-3.8-16.6c-5.7-3.8-13.4-2.3-17.2 3.4c-.1.2-.2.4-.3.5c-1.4 2.9-.5 6.3 2.1 8.1"
+        fill="#ed4c5c"></path>
+      <path d="M42.3 38.9c.1-.2.2-.4.3-.5c-.1.1-.2.3-.3.5" fill="#003478"></path>
+      <path
+        d="M40.6 30.3c-2.8-1.9-6.7-1.1-8.6 1.7c-1.9 2.8-5.7 3.6-8.6 1.7c-2.7-1.8-3.5-5.3-2-8c-3.4 5.6-1.8 12.9 3.8 16.6c5.7 3.8 13.4 2.3 17.2-3.4c.1-.2.2-.4.3-.5c1.4-2.9.5-6.3-2.1-8.1"
+        fill="#428bc1"></path>
+      <g fill="#3e4347">
+        <path d="M7.8 23.3L14.7 13l-.7-.5l-.7-.4l-6.9 10.3l.7.4z"></path>
+        <path d="M9.7 24.6l.7.4l6.8-10.3l-.6-.4l-.7-.5L9 24.1z"></path>
+        <path d="M18.4 15.5l-6.8 10.3l.7.5l.7.4l6.8-10.3l-.7-.4z"></path>
+        <path d="M48.5 42.5l.7.5l3.2-4.8l-.7-.5l-.7-.4l-3.2 4.8z"></path>
+        <path d="M56.2 40.7L53 45.5l.7.5l.7.4l3.2-4.8l-.7-.4z"></path>
+        <path d="M51.8 44.7l3.2-4.8l-.7-.5l-.7-.4l-3.2 4.8l.7.4z"></path>
+        <path d="M48.1 43.2l-.7-.4l-3.2 4.8l.7.4l.7.5l3.2-4.8z"></path>
+        <path d="M50.6 44.9l-.6-.4l-3.2 4.8l.6.4l.7.5l3.2-4.8z"></path>
+        <path d="M52.5 46.2L49.3 51l.7.5l.7.4l3.2-4.8l-.7-.5z"></path>
+        <path d="M7.1 41.2l-.7.4l6.9 10.3l.7-.4l.7-.5l-6.9-10.3z"></path>
+        <path d="M13.4 44.9l-.7.5l3.2 4.8l.7-.5l.6-.4l-3.2-4.8z"></path>
+        <path d="M12.3 37.7l-.7.5l6.8 10.3l.7-.5l.7-.4L13 37.3z"></path>
+        <path d="M9 39.9l3.2 4.8l.7-.5l.7-.4l-3.2-4.8l-.7.4z"></path>
+        <path d="M53.2 17.4l.7-.5l-3.2-4.8l-.7.4l-.7.5l3.2 4.8z"></path>
+        <path d="M48.1 20.8l.7-.5l-3.2-4.8l-.7.5l-.7.4l3.2 4.8z"></path>
+        <path d="M53 18.5l3.2 4.8l.7-.5l.7-.4l-3.2-4.8l-.7.4z"></path>
+        <path d="M54.3 24.6l.7-.5l-6.9-10.3l-.7.5l-.6.4L53.6 25z"></path>
+        <path d="M51.7 26.3l.7-.5l-3.2-4.8l-.7.5l-.7.4l3.2 4.8z"></path>
+      </g>
+    </symbol>
+    <symbol version="1.1" id="united-kingdom-flag" xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 512 512">
+      <circle cx="256" cy="256" r="256"></circle>
+      <g>
+        <path d="M52.92,100.142c-20.109,26.163-35.272,56.318-44.101,89.077h133.178L52.92,100.142z"></path>
+        <path d="M503.181,189.219c-8.829-32.758-23.993-62.913-44.101-89.076l-89.075,89.076H503.181z"></path>
+        <path d="M8.819,322.784c8.83,32.758,23.993,62.913,44.101,89.075l89.074-89.075L8.819,322.784L8.819,322.784
+                      		z"></path>
+        <path d="M411.858,52.921c-26.163-20.109-56.317-35.272-89.076-44.102v133.177L411.858,52.921z"></path>
+        <path d="M100.142,459.079c26.163,20.109,56.318,35.272,89.076,44.102V370.005L100.142,459.079z"></path>
+        <path d="M189.217,8.819c-32.758,8.83-62.913,23.993-89.075,44.101l89.075,89.075V8.819z"></path>
+        <path d="M322.783,503.181c32.758-8.83,62.913-23.993,89.075-44.101l-89.075-89.075V503.181z"></path>
+        <path d="M370.005,322.784l89.075,89.076c20.108-26.162,35.272-56.318,44.101-89.076H370.005z"></path>
+      </g>
+      <g>
+        <path d="M509.833,222.609h-220.44h-0.001V2.167C278.461,0.744,267.317,0,256,0
+                      		c-11.319,0-22.461,0.744-33.391,2.167v220.44v0.001H2.167C0.744,233.539,0,244.683,0,256c0,11.319,0.744,22.461,2.167,33.391
+                      		h220.44h0.001v220.442C233.539,511.256,244.681,512,256,512c11.317,0,22.461-0.743,33.391-2.167v-220.44v-0.001h220.442
+                      		C511.256,278.461,512,267.319,512,256C512,244.683,511.256,233.539,509.833,222.609z"></path>
+        <path d="M322.783,322.784L322.783,322.784L437.019,437.02c5.254-5.252,10.266-10.743,15.048-16.435
+                      		l-97.802-97.802h-31.482V322.784z"></path>
+        <path d="M189.217,322.784h-0.002L74.98,437.019c5.252,5.254,10.743,10.266,16.435,15.048l97.802-97.804
+                      		V322.784z"></path>
+        <path d="M189.217,189.219v-0.002L74.981,74.98c-5.254,5.252-10.266,10.743-15.048,16.435l97.803,97.803
+                      		H189.217z"></path>
+        <path d="M322.783,189.219L322.783,189.219L437.02,74.981c-5.252-5.254-10.743-10.266-16.435-15.047
+                      		l-97.802,97.803V189.219z"></path>
+      </g>
+    </symbol>
+    <symbol version="1.1" id="united-states-flag" xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 473.677 473.677">
+      <g>
+        <rect x="1.068" y="258.99" width="471.56" height="0.007"></rect>
+        <rect x="25.629" y="129.7" width="422.42" height="0.007"></rect>
+        <rect x="8.831" y="172.79" width="456" height="0.007"></rect>
+        <polygon points="101.793,431.36 371.888,431.36 371.902,431.345 101.778,431.345 	"></polygon>
+        <path d="M236.837,0c-4.652,0-9.267,0.168-13.848,0.43h27.699C246.103,0.168,241.489,0,236.837,0z"></path>
+        <rect x="0.978" y="215.89" width="471.71" height="0.007"></rect>
+      </g>
+      <path d="M306.838,86.609H419.93c-13.433-16.353-29.045-30.829-46.341-43.084h-84.922
+                      	C295.694,55.888,301.737,70.476,306.838,86.609z"></path>
+      <path d="M288.667,43.525h84.922C338.482,18.646,296.333,3.066,250.688,0.43h-7.292
+                      	C264.88,3.134,274.748,19.034,288.667,43.525z"></path>
+      <path d="M464.846,172.794c-4.211-15.018-9.858-29.427-16.798-43.084H317.94
+                      	c2.636,13.833,4.716,28.282,6.256,43.084H464.846z"></path>
+      <path d="M310.622,129.703h137.422c-7.831-15.403-17.239-29.857-28.114-43.091H299.886
+                      	C304.119,100.011,307.713,114.465,310.622,129.703z"></path>
+      <path d="M329.178,258.98h143.431c0.681-7.288,1.066-14.674,1.066-22.138c0-7.064-0.37-14.038-0.976-20.949
+                      	H329.212C329.679,230.223,329.671,244.658,329.178,258.98z"></path>
+      <path d="M472.703,215.886c-1.298-14.798-3.964-29.195-7.857-43.084H318.154
+                      	c1.473,14.109,2.446,28.544,2.921,43.084H472.703z"></path>
+      <path d="M315.465,345.166h131.962c7.038-13.642,12.774-28.062,17.075-43.091H321.845
+                      	C320.274,316.899,318.142,331.345,315.465,345.166z"></path>
+      <path d="M464.506,302.072c3.975-13.885,6.735-28.282,8.107-43.084H324.709
+                      	c-0.505,14.551-1.507,28.982-3.01,43.084L464.506,302.072L464.506,302.072z"></path>
+      <path d="M371.902,431.345c17.546-12.206,33.379-26.697,47.025-43.084H307.806
+                      	c-5.194,16.2-11.361,30.765-18.515,43.084L371.902,431.345L371.902,431.345z"></path>
+      <g>
+        <path d="M303.625,388.258h115.302c11.002-13.219,20.553-27.673,28.499-43.091h-132.93
+                      		C311.546,360.416,307.915,374.877,303.625,388.258z"></path>
+        <path d="M228.254,473.509c-0.479-0.015-0.957-0.037-1.436-0.052
+                      		C227.297,473.471,227.776,473.494,228.254,473.509z"></path>
+        <path d="M236.837,473.677c50.211,0,96.735-15.673,135.051-42.317h-85.715
+                      		C270.96,457.57,260.923,473.677,236.837,473.677z"></path>
+      </g>
+      <path d="M236.837,473.677c-2.876,0-5.733-0.067-8.582-0.168C231.134,473.606,233.994,473.677,236.837,473.677
+                      	z"></path>
+      <path d="M296.509,43.525H100.092C82.793,55.78,67.184,70.255,53.747,86.609h260.929
+                      	C309.575,70.476,303.536,55.888,296.509,43.525z"></path>
+      <path d="M100.092,43.525h196.417C282.587,19.034,264.88,3.134,243.396,0.43h-20.407
+                      	C177.344,3.066,135.195,18.646,100.092,43.525z"></path>
+      <path d="M8.835,172.794h322.83c-1.541-14.805-3.62-29.251-6.256-43.084H25.633
+                      	C18.692,143.368,13.046,157.776,8.835,172.794z"></path>
+      <path d="M53.747,86.609C42.88,99.843,33.464,114.296,25.637,129.7h299.772
+                      	c-2.906-15.235-6.499-29.688-10.733-43.091C314.676,86.609,53.747,86.609,53.747,86.609z"></path>
+      <path d="M0.002,236.842c0,7.464,0.389,14.85,1.066,22.138h333.491c0.494-14.323,0.501-28.754,0.034-43.084
+                      	H0.978C0.372,222.804,0.002,229.778,0.002,236.842z"></path>
+      <path d="M0.978,215.886h333.611c-0.475-14.543-1.451-28.974-2.921-43.084H8.831
+                      	C4.938,186.694,2.272,201.088,0.978,215.886z"></path>
+      <path d="M331.549,302.072H9.175c4.301,15.033,10.041,29.449,17.075,43.091h298.919
+                      	C327.847,331.345,329.974,316.899,331.549,302.072z"></path>
+      <path d="M9.175,302.072h322.374c1.5-14.102,2.505-28.537,3.01-43.084H1.068
+                      	C2.44,273.793,5.204,288.187,9.175,302.072z"></path>
+      <path d="M101.778,431.345h194.009c7.154-12.322,13.324-26.884,18.515-43.084H54.753
+                      	C68.399,404.648,84.228,419.139,101.778,431.345z"></path>
+      <g>
+        <path d="M26.254,345.166c7.947,15.418,17.497,29.872,28.499,43.091h259.549
+                      		c4.286-13.38,7.917-27.841,10.867-43.091H26.254z"></path>
+        <path d="M226.818,473.456c0.479,0.015,0.957,0.037,1.436,0.052c2.85,0.101,5.707,0.168,8.582,0.168
+                      		c24.087,0,43.727-16.106,58.943-42.317H101.793C137.54,456.221,180.448,471.523,226.818,473.456z">
+        </path>
+      </g>
+      <path d="M231.941,0.123C110.574,2.592,11.654,96.301,1.008,215.5h230.937V0.123H231.941z"></path>
+      <g>
+        <polygon points="47.39,134.187 50.998,145.297 62.688,145.297 53.231,152.167 56.843,163.285 47.39,156.411 
+                      		37.94,163.285 41.545,152.167 32.091,145.297 43.781,145.297 	"></polygon>
+        <polygon points="47.39,173.438 50.998,184.555 62.688,184.555 53.231,191.425 56.843,202.543 47.39,195.669 
+                      		37.94,202.543 41.545,191.425 32.091,184.555 43.781,184.555 	"></polygon>
+        <polygon points="86.648,75.296 90.257,86.41 101.943,86.41 92.489,93.284 96.098,104.394 86.648,97.528 
+                      		77.194,104.394 80.803,93.284 71.345,86.41 83.035,86.41 	"></polygon>
+        <polygon points="86.648,114.554 90.257,125.668 101.943,125.668 92.489,132.534 96.098,143.652 
+                      		86.648,136.786 77.194,143.652 80.803,132.534 71.345,125.668 83.035,125.668 	"></polygon>
+        <polygon points="86.648,153.812 90.257,164.93 101.943,164.93 92.489,171.792 96.098,182.91 86.648,176.037 
+                      		77.194,182.91 80.803,171.792 71.345,164.93 83.035,164.93 	"></polygon>
+        <path d="M17.585,182.91l-3.612-11.118l9.454-6.866H11.744l-0.262-0.811
+                      		c-1.283,3.968-2.442,7.984-3.511,12.045l0.165-0.123L17.585,182.91z"></path>
+        <path d="M37.94,124.027l9.45-6.873l9.454,6.873l-3.612-11.118l9.454-6.873h-11.69l-3.609-11.11l-3.609,11.11
+                      		H39.47c-0.8,1.212-1.574,2.431-2.352,3.661l4.428,3.212L37.94,124.027z"></path>
+        <path d="M86.648,58.27l9.45,6.866l-3.609-11.11l9.45-6.873h-6.75c-5.733,4.286-11.264,8.822-16.578,13.608
+                      		l-1.425,4.375L86.648,58.27z"></path>
+        <path d="M116.452,45.511l9.454-6.873l9.45,6.873l-3.609-11.118l9.45-6.866h-11.686l-0.49-1.496
+                      		c-3.96,2.023-7.879,4.128-11.709,6.368l2.745,1.993L116.452,45.511z"></path>
+        <polygon points="125.906,55.671 129.515,66.778 141.201,66.778 131.747,73.651 135.356,84.769 
+                      		125.906,77.895 116.452,84.769 120.061,73.651 110.604,66.778 122.293,66.778 	"></polygon>
+        <polygon points="125.906,94.929 129.515,106.036 141.201,106.036 131.747,112.909 135.356,124.027 
+                      		125.906,117.153 116.452,124.027 120.061,112.909 110.604,106.036 122.293,106.036 	"></polygon>
+        <polygon points="125.906,134.187 129.515,145.297 141.201,145.297 131.747,152.167 135.356,163.285 
+                      		125.906,156.411 116.452,163.285 120.061,152.167 110.604,145.297 122.293,145.297 	"></polygon>
+        <polygon points="125.906,173.438 129.515,184.555 141.201,184.555 131.747,191.425 135.356,202.543 
+                      		125.906,195.669 116.452,202.543 120.061,191.425 110.604,184.555 122.293,184.555 	"></polygon>
+        <polygon points="165.164,36.038 168.773,47.152 180.459,47.152 171.009,54.026 174.614,65.136 
+                      		165.164,58.27 155.707,65.136 159.319,54.026 149.862,47.152 161.551,47.152 	"></polygon>
+        <polygon points="165.164,75.296 168.773,86.41 180.459,86.41 171.009,93.284 174.614,104.394 
+                      		165.164,97.528 155.707,104.394 159.319,93.284 149.862,86.41 161.551,86.41 	"></polygon>
+        <polygon points="165.164,114.554 168.773,125.668 180.459,125.668 171.009,132.534 174.614,143.652 
+                      		165.164,136.786 155.707,143.652 159.319,132.534 149.862,125.668 161.551,125.668 	"></polygon>
+        <polygon points="165.164,153.812 168.773,164.93 180.459,164.93 171.009,171.792 174.614,182.91 
+                      		165.164,176.037 155.707,182.91 159.319,171.792 149.862,164.93 161.551,164.93 	"></polygon>
+        <polygon points="204.422,16.413 208.031,27.527 219.717,27.527 210.263,34.393 213.872,45.511 
+                      		204.422,38.637 194.965,45.511 198.577,34.393 189.12,27.527 200.806,27.527 	"></polygon>
+        <polygon points="204.422,55.671 208.031,66.778 219.717,66.778 210.263,73.651 213.872,84.769 
+                      		204.422,77.895 194.965,84.769 198.577,73.651 189.12,66.778 200.806,66.778 	"></polygon>
+        <polygon points="204.422,94.929 208.031,106.036 219.717,106.036 210.263,112.909 213.872,124.027 
+                      		204.422,117.153 194.965,124.027 198.577,112.909 189.12,106.036 200.806,106.036 	"></polygon>
+        <polygon points="204.422,134.187 208.031,145.297 219.717,145.297 210.263,152.167 213.872,163.285 
+                      		204.422,156.411 194.965,163.285 198.577,152.167 189.12,145.297 200.806,145.297 	"></polygon>
+        <polygon points="204.422,173.438 208.031,184.555 219.717,184.555 210.263,191.425 213.872,202.543 
+                      		204.422,195.669 194.965,202.543 198.577,191.425 189.12,184.555 200.806,184.555 	"></polygon>
+      </g>
+    </symbol>
+  </svg>
+</template>
+
+<style scoped>
+.wrapper,
+span {
+  color: var(--light-color);
+}
+
+.wrapper {
+  max-width: 50rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.accordion {
+  --_button-size: 3rem;
+  --_panel-padding: 0.75rem;
+  --_panel-gap: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  contain: content;
+}
+
+@media (min-width: 45em) {
+  .accordion {
+    flex-direction: row;
+    height: 30rem;
+  }
+}
+
+.accordion * {
+  margin: 0;
+}
+
+.accordion-panel {
+  position: relative;
+  isolation: isolate;
+  flex-basis: calc((var(--_panel-padding) * 2) + var(--_button-size));
+  overflow: hidden;
+  padding: var(--_panel-padding);
+  padding-right: calc(var(--_panel-padding) * 4);
+  border-radius: calc(((var(--_panel-padding) * 2) + var(--_button-size)) / 2);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .accordion-panel {
+    transition: flex-basis 500ms flex-grow 500ms;
+  }
+}
+
+.accordion-panel:has([aria-expanded="true"]) {
+  flex-basis: clamp(15rem, 40vh, 20rem);
+  flex-grow: 1;
+}
+
+.accordion-trigger {
+  outline: 0;
+}
+
+.accordion-panel:focus-within {
+  outline: 3px solid var(--_panel-color);
+  outline-offset: 4px;
+}
+
+.accordion-content>p {
+  transform: translateY(2rem);
+  opacity: 0;
+  margin-left: calc(var(--_button-size) + var(--_panel-gap));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .accordion-panel:has([aria-expanded="true"]) p {
+    transition: transform 500ms 500ms, opacity 500ms 500ms;
+  }
+}
+
+.accordion-panel:has([aria-expanded="true"]) .accordion-content>p {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.accordion-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+}
+
+@media (max-width: 44.999em) {
+  .accordion-title::after {
+    content: '';
+    position: absolute;
+    left: calc((var(--_panel-gap) + var(--_button-size)) * -1);
+    width: calc(100% + (var(--_button-size) *2));
+    height: var(--_button-size);
+    background: hsl(0 0% 0% / 0.5);
+    z-index: -1;
+    border-radius: 100vw;
+  }
+}
+
+/* .accordion-panel:nth-child(1) {
+  --_panel-color: hsl(160, 70%, 50%);
+}
+
+.accordion-panel:nth-child(2) {
+  --_panel-color: hsl(180, 70%, 50%);
+}
+
+.accordion-panel:nth-child(3) {
+  --_panel-color: hsl(220, 70%, 50%);
+}
+
+.accordion-panel:nth-child(4) {
+  --_panel-color: hsl(350, 70%, 50%);
+}
+
+.accordion-panel:nth-child(5) {
+  --_panel-color: hsl(20, 70%, 50%);
+} */
+
+
+
+.accordion-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  transition: filter 500ms;
+}
+
+.accordion-panel:has([aria-expanded="true"]) .accordion-image {
+  filter: brightness(0.5);
+}
+
+.accordion-trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--_panel-gap);
+  flex-direction: row-reverse;
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.accordion-icon {
+  fill: var(--_panel-color);
+  background: hsl(0 0% 0% / 0.5);
+  width: var(--_button-size);
+  aspect-ratio: 1/1;
+  padding: 0.75rem;
+  border-radius: 50%;
+  z-index: 10;
+}
+</style>

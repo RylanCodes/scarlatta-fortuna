@@ -1,0 +1,322 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Prata&display=swap");
+
+:root {
+  /* color-scheme: light dark; */
+
+  --dark-color: #201a1e;
+  --accent-color: #d0b49f;
+  --light-color: #e4d4c8;
+  --bg-color: #e2e6e7;
+  --footer-color: #eae0d5;
+  --primary-brand-color: #dba39a;
+  --accent-color-hover: #0e0e10;
+  --disabled-color: #f5ebe0;
+  --search-color: #e2e6e700;
+  --font-btn-color: #fff;
+  --font-cart-color: #454545;
+  --invoice-color: #eee;
+  --sku-color: #777;
+  --danger-color: #cc0000;
+  --dark-palette-90: linear-gradient(
+    90deg,
+    #121212,
+    #181818,
+    #404040,
+    #282828,
+    #ffffff,
+    #b3b3b3
+  );
+  --dark-palette-45: linear-gradient(
+    45deg,
+    #121212,
+    #181818,
+    #404040,
+    #282828,
+    #ffffff,
+    #d0b49f,
+    #dba39a,
+    #d0b49f
+  );
+  --gradient-90: linear-gradient(90deg, #f08080, #ed2939, #f88379, #dba39a);
+  --gradient-45: linear-gradient(45deg, #f08080, #ed2939, #f88379, #dba39a);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+body {
+  font-family: "Prata", serif;
+  font-family: "Lato", sans-serif;
+  min-height: 100vh;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+html {
+  /* color-scheme: dark light; */
+  background-color: var(--bg-color);
+  scroll-behavior: smooth;
+}
+
+html:has(:modal) {
+  overflow: hidden;
+}
+
+.modal {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+  opacity: 1;
+  border: 0;
+  /* margin: auto; */
+  padding: 1em;
+  /* max-width: 50ch; */
+  overflow-y: hidden;
+  box-shadow: 0 0 1em rgb(0 0 0 / 0.3);
+}
+
+.modal::backdrop {
+  background: rgb(0 0 0 / 0.4);
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.15rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: var(--dark-palette-45);
+  color: var(--font-btn-color);
+  text-transform: uppercase;
+}
+
+.btn:hover,
+.btn:focus {
+  color: var(--dark-color);
+  background-position: right;
+}
+
+.fun {
+  background-size: 300%;
+  background-position: left;
+  transition: background-position 650ms;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+a,
+i {
+  color: var(--dark-color);
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.branding h1 a,
+a.router-link,
+a.router-link:hover {
+  text-decoration: none;
+  text-align: center;
+  font-size: 2.5rem;
+  font-size: clamp(1rem, 1rem + 2vw, 2.5rem);
+  font-family: "Prata", serif;
+  color: var(--primary-brand-color);
+}
+
+.branding,
+.branding h1 a {
+  text-transform: uppercase;
+  background: linear-gradient(
+    to right,
+    var(--primary-brand-color),
+    var(--accent-color),
+    var(--primary-brand-color),
+    var(--accent-color)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+a:active {
+  color: var(--dark-color);
+}
+
+.underline-offset:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+input:not([type="number"]) {
+  outline: 0;
+  border: 0;
+  border-radius: 5px;
+  color: var(--font-btn-color);
+  padding: 0.25rem;
+  background: linear-gradient(
+    to right,
+    var(--primary-brand-color),
+    var(--accent-color)
+  );
+}
+
+form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 15em;
+  margin-bottom: 2em;
+}
+
+form p,
+form li {
+  font-size: 12px;
+  color: var(--danger-color);
+}
+
+::placeholder {
+  color: var(--font-btn-color);
+  opacity: 1;
+}
+
+.cartQty {
+  font-family: Lato;
+  font-size: 1.15rem;
+  font-weight: 600;
+  padding-left: 0.25rem;
+}
+
+.flex-column-align {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 5rem;
+}
+
+.alert-message {
+  text-align: center;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  max-width: 30ch;
+  padding-bottom: 2rem;
+}
+
+.hero-heading {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--light-color);
+}
+
+.hero-copy {
+  padding-block: 1.5rem;
+  inline-size: min(100% - 2rem, 95rem);
+  margin-inline: auto;
+  line-height: 1.25;
+  text-align: left;
+  font-family: "Cormorant", serif;
+  font-weight: 400;
+  /* font-size: calc(1.25vmin + 1.2vmax); */
+  font-size: clamp(1.75rem, 1.25rem, 2.25rem);
+}
+
+.lighter {
+  font-weight: lighter;
+}
+
+.bolder {
+  font-weight: bold;
+}
+
+.cart-font-color {
+  color: var(--font-cart-color);
+}
+
+.invoice-bg-color {
+  background-color: var(--invoice-color);
+}
+
+.fa-plus,
+.fa-caret-left,
+.fa-caret-right,
+.fa-heart,
+.fa-shirt,
+.fa-clock,
+.fa-share-from-square,
+.fa-circle-xmark,
+.fa-xmark,
+.fa-trash-can,
+.fa-arrow-up-wide-short,
+.fa-arrow-down-wide-short,
+button,
+input[type="radio"]:hover,
+input[type="range"]:hover,
+input[type="number"]:hover,
+.star-rating label {
+  cursor: pointer;
+}
+
+/* add a blue h1 heading  */
+/* h1 {
+  color: blue;
+} */
+
+/* Flashing */
+.hover img:hover {
+  cursor: pointer;
+  opacity: 1;
+  -webkit-animation: flash 2s;
+  animation: flash 2s;
+}
+
+@-webkit-keyframes flash {
+  0% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
